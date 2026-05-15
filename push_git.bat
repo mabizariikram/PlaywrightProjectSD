@@ -1,20 +1,14 @@
 @echo off
 
-echo ============================
-echo   GIT AUTO PUSH START
-echo ============================
+echo ===== AUTO GIT SCRIPT =====
 
-echo Adding files...
+git status
+
 git add .
 
-echo Creating commit...
-git commit -m "auto commit"
+git commit -m "auto commit %date% %time%"
 
-echo Pushing to GitHub...
 git push
 
-echo ============================
-echo   DONE SUCCESSFULLY
-echo ============================
-
+echo ===== FINISHED =====
 pause
