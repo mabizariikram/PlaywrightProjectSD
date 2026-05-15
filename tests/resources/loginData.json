@@ -1,0 +1,9 @@
+[
+  {"username":"standard_user","password":"secret_sauce","result":"success"},
+  {"username":"wrong_user","password":"secret_sauce","result":"failure"},
+  {"username":"locked_out_user","password":"secret_sauce","result":"failure"},
+  {"username":"problem_user","password":"secret_sauce","result":"success"},
+  {"username":"performance_glitch_user","password":"secret_sauce","result":"success"},
+  {"username":"error_user","password":"wrong_password","result":"failure"},
+  {"username":"visual_user","password":"secret_sauce","result":"success"}
+]
