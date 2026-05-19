@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
 import { loginpom} from '../pages/loginpom.page';
-import { produitpom } from '../pages/produitpom.page';
+import { ProductPom } from '../pages/produitpom.page';
 
 
 let lp: loginpom;
-let pp: produitpom;
+let pp: ProductPom;
 
 test.beforeEach(async ({ page }) => {
     await page.goto("https://www.saucedemo.com");
 
     lp = new loginpom(page);
-    pp = new produitpom(page);
+    pp = new ProductPom(page);
 
     await lp.loginToApp("standard_user", "secret_sauce");
 });

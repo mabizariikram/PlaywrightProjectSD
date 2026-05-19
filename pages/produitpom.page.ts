@@ -22,7 +22,7 @@ export class ProductPom {
         await this.elements.cartLink().click();
     }
 
-    // 👉 important (pas async)
+    //  important (pas async)
     getRemoveButton() {
         return this.elements.removeBtn();
     }
