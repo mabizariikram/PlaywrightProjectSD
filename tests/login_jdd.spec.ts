@@ -3,6 +3,7 @@ import {loginpom} from '../pages/loginpom.page';
 import fs from 'fs';//file system pour lire le fichier csv
 import {parse} from 'csv-parse/sync';// importer un parseur pour convertir le csv en object javascript
 import path from 'path'
+import { error } from 'console';
 
 let lp:loginpom; //instance de pom de login
 
@@ -13,21 +14,45 @@ const users= parse(fs.readFileSync(path.join(__dirname,'data/jdd.csv')),{
 });
 
 test("login_jdd",async ({page})=>{
+//     const lp = new loginpom(page);
+
+//     for (const user of users) {
+
+//     await page.goto("https://www.saucedemo.com/");
+
+//     await lp.saisieUsername(user.username);
+//     await lp.saisiePassword(user.password);
+//     await lp.clickLogin();
+
+//     const error = page.locator('[data-test="error"]');
+
+//     if (user.result === "success") {
+//         await expect(page).toHaveURL(/inventory/);
+//     } else {
+        
+//     await expect(page).toHaveURL("https://www.saucedemo.com/");
+//     await expect(error).toHaveCount(1);
+//     await expect(error).toBeVisible();
+//     }
+// }
+    lp = new loginpom(page);
     for (const user of users!){
-        lp= new loginpom(page);
+       
         await page.goto("https://www.saucedemo.com/");
         await lp.saisieUsername(user!.username);
         await lp.saisiePassword(user!.password);
         await lp.clickLogin();
-
+        const error = page.locator('[data-test="error"]');
         if (user!.result=="success"){
             await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
         }
         else{
-            await expect(page.locator("[data-test='error']")).toBeVisible();
+            //await expect(page.locator('[data-test="error"]')).toBeVisible();
+            
+             await expect(error).toBeVisible();
         }
         
 
 
-    }
+  }
 });
