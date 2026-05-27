@@ -30,4 +30,9 @@ export class ProductPom {
     getCartBadge() {
         return this.elements.cartBadge();
     }
+    // methode qui permert dajouter le produit et click sur panier
+    async addProductAndGoToCart() {
+        await this.addProduct();
+        await this.goToCart();
+    }
 }

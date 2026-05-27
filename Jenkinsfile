@@ -32,4 +32,4 @@ pipeline {
             archiveArtifacts artifacts: 'playwright-report/**/*', fingerprint: true
         }
     }
-}
+}   

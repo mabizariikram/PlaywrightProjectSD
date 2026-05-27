@@ -26,6 +26,7 @@ test ("login valid",{tag: '@valid'}, async ({page})=>{
     await page.locator("#login-button").click();
     // assertion:
     await expect(page.locator("h3[data-test='error']")).toHaveText("Epic sadface: Username and password do not match any user in this service");
+    //await expect(page.locator("h3[data-test='error']")).toBeVisible();
     await page.screenshot({path:"login_invalid.png", fullPage:true});// prendre une capture d'ecran de la page apres le login invalide 
 
 });    
